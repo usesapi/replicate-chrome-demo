@@ -25,8 +25,5 @@ chrome.contextMenus.create(
     contexts: ["image"],
     title: "Make Sketch",
     id: "sketchModel",
-  },
-  () => {
-    console.log("created context menu!");
   }
 );
