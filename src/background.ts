@@ -1,4 +1,4 @@
-import { createHighRes } from "./replicate";
+import { createSketchFromImage } from "./replicate";
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (!(info.srcUrl && info.mediaType === "image")) {
@@ -8,7 +8,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     });
   }
 
-  createHighRes(info.srcUrl!)
+  createSketchFromImage(info.srcUrl!)
     .catch((e) => {
       chrome.tabs.sendMessage(tab!.id!, {
         type: "imageModelError",
