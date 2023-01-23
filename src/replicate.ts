@@ -15,8 +15,8 @@ const checkResult = async (
   const res = await fetch(`${replicateApiUrl}v1/predictions/${id}`, {
     headers: {
       "Content-Type": "application/json",
-      Authorization: `${token}`,
-    },
+      Authorization: `${token}`
+    }
   });
   const json = await res.json();
   if (!json["completed_at"]) {
@@ -34,16 +34,17 @@ export const createSketchFromImage = async (imageUrl: string): Promise<string> =
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `${token}`,
+      Authorization: `${token}`
     },
     body: JSON.stringify({
       version: modelId,
       input: {
-        pretrained: "sketch_multi",
+        pretrained: "disney",
+        preserve_color: true,
         alpha: 1,
-        input_face: imageUrl,
-      },
-    }),
+        input_face: imageUrl
+      }
+    })
   });
   const json = await res.json();
   const id = json["id"];

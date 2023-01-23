@@ -1,5 +1,5 @@
 const SAPI_BASE_URL = "https://api.usesapi.com/";
-export const proxyId = "api-replicate-com-e2a5fazk"; //todo: set your own Sapi proxy id here - create it on https://console.usesapi.com
+export const proxyId = "api-replicate-com-3rfnmb";
 
 export const createToken = async (): Promise<string> => {
   const res = await fetch(`${SAPI_BASE_URL}v1/token?code=${proxyId}`, {

@@ -1,10 +1,14 @@
 import { createSketchFromImage } from "./replicate";
 
+const disneyMenuItemId = "disneyMenuItem";
 chrome.contextMenus.onClicked.addListener((info, tab) => {
+  if (info.menuItemId !== disneyMenuItemId) {
+    return;
+  }
   if (!(info.srcUrl && info.mediaType === "image")) {
     chrome.tabs.sendMessage(tab!.id!, {
       type: "imageModelError",
-      error: "Not an image or no src",
+      error: "Not an image or no src"
     });
   }
 
@@ -12,7 +16,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     .catch((e) => {
       chrome.tabs.sendMessage(tab!.id!, {
         type: "imageModelError",
-        error: e.message,
+        error: e.message
       });
     })
     .then((imageUrl) => {
@@ -23,7 +27,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 chrome.contextMenus.create(
   {
     contexts: ["image"],
-    title: "Make Sketch",
-    id: "sketchModel",
+    title: "Create Disney Character",
+    id: disneyMenuItemId
   }
 );

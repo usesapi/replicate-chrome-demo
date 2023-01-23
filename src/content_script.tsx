@@ -6,6 +6,7 @@ closeBtn.style.position = "absolute";
 closeBtn.style.top = "10px";
 closeBtn.style.right = "10px";
 closeBtn.addEventListener("click", () => {
+  // @ts-ignore
   imageDialog.close();
 });
 image.style.maxWidth = "400px";
@@ -23,6 +24,7 @@ chrome.runtime.onMessage.addListener((request) => {
       return;
     }
     image.src = imageUrl;
+    // @ts-ignore
     imageDialog.showModal();
   }
 });
