@@ -28,7 +28,7 @@ const checkResult = async (
   return json["output"];
 };
 
-export const createHighRes = async (imageUrl: string): Promise<string> => {
+export const createSketchFromImage = async (imageUrl: string): Promise<string> => {
   const token = await createToken();
   const res = await fetch(`${replicateApiUrl}v1/predictions`, {
     method: "POST",
