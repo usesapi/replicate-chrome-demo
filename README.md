@@ -23,12 +23,6 @@ Configure your Replicate Sapi ID in the top of `src/sapi.ts`
 const SAPI_ID = "api-replicate-com-....";
 ```
 
-## Project Structure
-
-* src/typescript: TypeScript source files
-* src/assets: static files
-* dist: Chrome Extension directory
-* dist/js: Generated JavaScript files
 
 ## Setup
 
@@ -55,7 +49,10 @@ npm run watch
 - Enable Developer Mode by clicking on the toggle switch in the top right corner of the page.
 - Click on the Load Unpacked button and navigate to the directory where you cloned the repo.
 - Select the dist folder and click on Open
+
 The extension should now be loaded in your browser and you should see it in the list of extensions.
+
+Now each time you right click an image a new "🚀 Create Disney Character" will appear
 
 ## Development
 
