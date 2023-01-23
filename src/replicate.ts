@@ -1,18 +1,16 @@
-import { createToken, proxyId } from "./sapi";
+import { createToken, SAPI_API_URL } from "./sapi";
 
 const modelId =
   "9a535b24c359049e4e7c44a976a6a54e3a1a348650084b23545fe7b55de95c2d";
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-const replicateApiUrl = `https://${proxyId}.proxy.usesapi.com/`;
-
 const checkResult = async (
   id: string,
   token: string
 ): Promise<string | null> => {
   console.log("checking results", Date.now());
-  const res = await fetch(`${replicateApiUrl}v1/predictions/${id}`, {
+  const res = await fetch(`${SAPI_API_URL}v1/predictions/${id}`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `${token}`
@@ -30,7 +28,7 @@ const checkResult = async (
 
 export const createSketchFromImage = async (imageUrl: string): Promise<string> => {
   const token = await createToken();
-  const res = await fetch(`${replicateApiUrl}v1/predictions`, {
+  const res = await fetch(`${SAPI_API_URL}v1/predictions`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
